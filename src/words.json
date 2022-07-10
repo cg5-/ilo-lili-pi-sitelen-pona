@@ -1,0 +1,706 @@
+{
+  "a": [
+    {
+      "glyph": "A",
+      "type": "lasina"
+    },
+    {
+      "glyph": "a",
+      "type": "pu"
+    },
+    {
+      "glyph": "akesi",
+      "type": "pu"
+    },
+    {
+      "glyph": "ala",
+      "type": "pu"
+    },
+    {
+      "glyph": "alasa",
+      "type": "pu"
+    },
+    {
+      "glyph": "ale",
+      "type": "pu"
+    },
+    {
+      "glyph": "anpa",
+      "type": "pu"
+    },
+    {
+      "glyph": "ante",
+      "type": "pu"
+    },
+    {
+      "glyph": "anu",
+      "type": "pu"
+    },
+    {
+      "glyph": "awen",
+      "type": "pu"
+    }
+  ],
+  "b": [
+    {
+      "glyph": "B",
+      "type": "lasina"
+    }
+  ],
+  "c": [
+    {
+      "glyph": "C",
+      "type": "lasina"
+    }
+  ],
+  "d": [
+    {
+      "glyph": "D",
+      "type": "lasina"
+    }
+  ],
+  "e": [
+    {
+      "glyph": "E",
+      "type": "lasina"
+    },
+    {
+      "glyph": "e",
+      "type": "pu"
+    },
+    {
+      "glyph": "en",
+      "type": "pu"
+    },
+    {
+      "glyph": "esun",
+      "type": "pu"
+    },
+    {
+      "glyph": "epiku",
+      "type": "ku-suli"
+    }
+  ],
+  "f": [
+    {
+      "glyph": "F",
+      "type": "lasina"
+    }
+  ],
+  "g": [
+    {
+      "glyph": "G",
+      "type": "lasina"
+    }
+  ],
+  "h": [
+    {
+      "glyph": "H",
+      "type": "lasina"
+    }
+  ],
+  "i": [
+    {
+      "glyph": "I",
+      "type": "lasina"
+    },
+    {
+      "glyph": "ijo",
+      "type": "pu"
+    },
+    {
+      "glyph": "ike",
+      "type": "pu"
+    },
+    {
+      "glyph": "ilo",
+      "type": "pu"
+    },
+    {
+      "glyph": "insa",
+      "type": "pu"
+    }
+  ],
+  "j": [
+    {
+      "glyph": "J",
+      "type": "lasina"
+    },
+    {
+      "glyph": "jaki",
+      "type": "pu"
+    },
+    {
+      "glyph": "jan",
+      "type": "pu"
+    },
+    {
+      "glyph": "jelo",
+      "type": "pu"
+    },
+    {
+      "glyph": "jo",
+      "type": "pu"
+    },
+    {
+      "glyph": "jasima",
+      "type": "ku-suli"
+    }
+  ],
+  "k": [
+    {
+      "glyph": "K",
+      "type": "lasina"
+    },
+    {
+      "glyph": "kala",
+      "type": "pu"
+    },
+    {
+      "glyph": "kalama",
+      "type": "pu"
+    },
+    {
+      "glyph": "kama",
+      "type": "pu"
+    },
+    {
+      "glyph": "kasi",
+      "type": "pu"
+    },
+    {
+      "glyph": "ken",
+      "type": "pu"
+    },
+    {
+      "glyph": "kepeken",
+      "type": "pu"
+    },
+    {
+      "glyph": "kili",
+      "type": "pu"
+    },
+    {
+      "glyph": "kiwen",
+      "type": "pu"
+    },
+    {
+      "glyph": "ko",
+      "type": "pu"
+    },
+    {
+      "glyph": "kon",
+      "type": "pu"
+    },
+    {
+      "glyph": "kule",
+      "type": "pu"
+    },
+    {
+      "glyph": "kulupu",
+      "type": "pu"
+    },
+    {
+      "glyph": "kute",
+      "type": "pu"
+    },
+    {
+      "glyph": "kijetesantakalu",
+      "type": "ku-suli"
+    },
+    {
+      "glyph": "kin",
+      "type": "ku-suli"
+    },
+    {
+      "glyph": "kipisi",
+      "type": "ku-suli"
+    },
+    {
+      "glyph": "kokosila",
+      "type": "ku-suli"
+    },
+    {
+      "glyph": "ku",
+      "type": "ku-suli"
+    }
+  ],
+  "l": [
+    {
+      "glyph": "L",
+      "type": "lasina"
+    },
+    {
+      "glyph": "la",
+      "type": "pu"
+    },
+    {
+      "glyph": "lape",
+      "type": "pu"
+    },
+    {
+      "glyph": "laso",
+      "type": "pu"
+    },
+    {
+      "glyph": "lawa",
+      "type": "pu"
+    },
+    {
+      "glyph": "len",
+      "type": "pu"
+    },
+    {
+      "glyph": "lete",
+      "type": "pu"
+    },
+    {
+      "glyph": "li",
+      "type": "pu"
+    },
+    {
+      "glyph": "lili",
+      "type": "pu"
+    },
+    {
+      "glyph": "linja",
+      "type": "pu"
+    },
+    {
+      "glyph": "lipu",
+      "type": "pu"
+    },
+    {
+      "glyph": "loje",
+      "type": "pu"
+    },
+    {
+      "glyph": "lon",
+      "type": "pu"
+    },
+    {
+      "glyph": "luka",
+      "type": "pu"
+    },
+    {
+      "glyph": "lukin",
+      "type": "pu"
+    },
+    {
+      "glyph": "lupa",
+      "type": "pu"
+    },
+    {
+      "glyph": "lanpan",
+      "type": "ku-suli"
+    },
+    {
+      "glyph": "leko",
+      "type": "ku-suli"
+    }
+  ],
+  "m": [
+    {
+      "glyph": "M",
+      "type": "lasina"
+    },
+    {
+      "glyph": "ma",
+      "type": "pu"
+    },
+    {
+      "glyph": "mama",
+      "type": "pu"
+    },
+    {
+      "glyph": "mani",
+      "type": "pu"
+    },
+    {
+      "glyph": "meli",
+      "type": "pu"
+    },
+    {
+      "glyph": "mi",
+      "type": "pu"
+    },
+    {
+      "glyph": "mije",
+      "type": "pu"
+    },
+    {
+      "glyph": "moku",
+      "type": "pu"
+    },
+    {
+      "glyph": "moli",
+      "type": "pu"
+    },
+    {
+      "glyph": "monsi",
+      "type": "pu"
+    },
+    {
+      "glyph": "mu",
+      "type": "pu"
+    },
+    {
+      "glyph": "mun",
+      "type": "pu"
+    },
+    {
+      "glyph": "musi",
+      "type": "pu"
+    },
+    {
+      "glyph": "mute",
+      "type": "pu"
+    },
+    {
+      "glyph": "meso",
+      "type": "ku-suli"
+    },
+    {
+      "glyph": "misikeke",
+      "type": "ku-suli"
+    },
+    {
+      "glyph": "monsuta",
+      "type": "ku-suli"
+    }
+  ],
+  "n": [
+    {
+      "glyph": "N",
+      "type": "lasina"
+    },
+    {
+      "glyph": "nanpa",
+      "type": "pu"
+    },
+    {
+      "glyph": "nasa",
+      "type": "pu"
+    },
+    {
+      "glyph": "nasin",
+      "type": "pu"
+    },
+    {
+      "glyph": "nena",
+      "type": "pu"
+    },
+    {
+      "glyph": "ni",
+      "type": "pu"
+    },
+    {
+      "glyph": "nimi",
+      "type": "pu"
+    },
+    {
+      "glyph": "noka",
+      "type": "pu"
+    },
+    {
+      "glyph": "n",
+      "type": "ku-suli"
+    },
+    {
+      "glyph": "namako",
+      "type": "ku-suli"
+    }
+  ],
+  "o": [
+    {
+      "glyph": "O",
+      "type": "lasina"
+    },
+    {
+      "glyph": "o",
+      "type": "pu"
+    },
+    {
+      "glyph": "olin",
+      "type": "pu"
+    },
+    {
+      "glyph": "ona",
+      "type": "pu"
+    },
+    {
+      "glyph": "open",
+      "type": "pu"
+    },
+    {
+      "glyph": "oko",
+      "type": "ku-suli"
+    }
+  ],
+  "p": [
+    {
+      "glyph": "P",
+      "type": "lasina"
+    },
+    {
+      "glyph": "pakala",
+      "type": "pu"
+    },
+    {
+      "glyph": "pali",
+      "type": "pu"
+    },
+    {
+      "glyph": "palisa",
+      "type": "pu"
+    },
+    {
+      "glyph": "pan",
+      "type": "pu"
+    },
+    {
+      "glyph": "pana",
+      "type": "pu"
+    },
+    {
+      "glyph": "pi",
+      "type": "pu"
+    },
+    {
+      "glyph": "pilin",
+      "type": "pu"
+    },
+    {
+      "glyph": "pimeja",
+      "type": "pu"
+    },
+    {
+      "glyph": "pini",
+      "type": "pu"
+    },
+    {
+      "glyph": "pipi",
+      "type": "pu"
+    },
+    {
+      "glyph": "poka",
+      "type": "pu"
+    },
+    {
+      "glyph": "poki",
+      "type": "pu"
+    },
+    {
+      "glyph": "pona",
+      "type": "pu"
+    },
+    {
+      "glyph": "pu",
+      "type": "pu"
+    }
+  ],
+  "q": [
+    {
+      "glyph": "Q",
+      "type": "lasina"
+    }
+  ],
+  "r": [
+    {
+      "glyph": "R",
+      "type": "lasina"
+    }
+  ],
+  "s": [
+    {
+      "glyph": "S",
+      "type": "lasina"
+    },
+    {
+      "glyph": "sama",
+      "type": "pu"
+    },
+    {
+      "glyph": "seli",
+      "type": "pu"
+    },
+    {
+      "glyph": "selo",
+      "type": "pu"
+    },
+    {
+      "glyph": "seme",
+      "type": "pu"
+    },
+    {
+      "glyph": "sewi",
+      "type": "pu"
+    },
+    {
+      "glyph": "sijelo",
+      "type": "pu"
+    },
+    {
+      "glyph": "sike",
+      "type": "pu"
+    },
+    {
+      "glyph": "sin",
+      "type": "pu"
+    },
+    {
+      "glyph": "sina",
+      "type": "pu"
+    },
+    {
+      "glyph": "sinpin",
+      "type": "pu"
+    },
+    {
+      "glyph": "sitelen",
+      "type": "pu"
+    },
+    {
+      "glyph": "sona",
+      "type": "pu"
+    },
+    {
+      "glyph": "soweli",
+      "type": "pu"
+    },
+    {
+      "glyph": "suli",
+      "type": "pu"
+    },
+    {
+      "glyph": "suno",
+      "type": "pu"
+    },
+    {
+      "glyph": "supa",
+      "type": "pu"
+    },
+    {
+      "glyph": "suwi",
+      "type": "pu"
+    },
+    {
+      "glyph": "soko",
+      "type": "ku-suli"
+    }
+  ],
+  "t": [
+    {
+      "glyph": "T",
+      "type": "lasina"
+    },
+    {
+      "glyph": "tan",
+      "type": "pu"
+    },
+    {
+      "glyph": "taso",
+      "type": "pu"
+    },
+    {
+      "glyph": "tawa",
+      "type": "pu"
+    },
+    {
+      "glyph": "telo",
+      "type": "pu"
+    },
+    {
+      "glyph": "tenpo",
+      "type": "pu"
+    },
+    {
+      "glyph": "toki",
+      "type": "pu"
+    },
+    {
+      "glyph": "tomo",
+      "type": "pu"
+    },
+    {
+      "glyph": "tu",
+      "type": "pu"
+    },
+    {
+      "glyph": "tonsi",
+      "type": "ku-suli"
+    }
+  ],
+  "u": [
+    {
+      "glyph": "U",
+      "type": "lasina"
+    },
+    {
+      "glyph": "unpa",
+      "type": "pu"
+    },
+    {
+      "glyph": "uta",
+      "type": "pu"
+    },
+    {
+      "glyph": "utala",
+      "type": "pu"
+    }
+  ],
+  "v": [
+    {
+      "glyph": "V",
+      "type": "lasina"
+    }
+  ],
+  "w": [
+    {
+      "glyph": "W",
+      "type": "lasina"
+    },
+    {
+      "glyph": "walo",
+      "type": "pu"
+    },
+    {
+      "glyph": "wan",
+      "type": "pu"
+    },
+    {
+      "glyph": "waso",
+      "type": "pu"
+    },
+    {
+      "glyph": "wawa",
+      "type": "pu"
+    },
+    {
+      "glyph": "weka",
+      "type": "pu"
+    },
+    {
+      "glyph": "wile",
+      "type": "pu"
+    }
+  ],
+  "x": [
+    {
+      "glyph": "X",
+      "type": "lasina"
+    }
+  ],
+  "y": [
+    {
+      "glyph": "Y",
+      "type": "lasina"
+    }
+  ],
+  "z": [
+    {
+      "glyph": "Z",
+      "type": "lasina"
+    }
+  ]
+}

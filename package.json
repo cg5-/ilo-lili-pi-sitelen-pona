@@ -1,0 +1,19 @@
+{
+  "name": "ilo-lili-pi-sitelen-pona",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --port 4173"
+  },
+  "dependencies": {
+    "materialize-css": "^1.0.0",
+    "tinylex": "^0.7.4",
+    "vue": "^3.2.37"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.3.3",
+    "sass": "^1.53.0",
+    "vite": "^2.9.12"
+  }
+}
