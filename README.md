@@ -1,5 +1,7 @@
 # ilo-lili-pi-sitelen-pona
 
+https://cg5-.github.io/ilo-lili-pi-sitelen-pona/
+
 ## Customize configuration
 
 See [Vite Configuration Reference](https://vitejs.dev/config/).

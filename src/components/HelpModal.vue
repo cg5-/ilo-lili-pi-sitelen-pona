@@ -151,12 +151,15 @@
 
 			<p v-if="useTP">
 				jan Mako li pali e ilo ni. <br>
-				ken la, sina kin li ken pali e ilo ni. sina ken lukin e toki ilo pi ilo ni lon lipu GitHub. sina ken pana e wile ante tawa mi lon lipu ni. <br>
+				ken la, sina kin li ken pali e ilo ni.
+				<a href="https://github.com/cg5-/ilo-lili-pi-sitelen-pona">sina ken lukin e toki ilo pi ilo ni lon lipu GitHub.</a>
+				sina ken pana e wile ante tawa mi lon lipu ni. <br>
 				jan Lipamanka/kulupu poki li pali e linja sike. ilo ni li kepeken linja ni. sina pona, jan Lipamanka o!
 			</p>
 			<p v-else>
 				<em>jan Mako</em> made this. <br>
-				Maybe you made this, too? The source code is on GitHub. Pull requests are welcome. <br>
+				Maybe you made this, too?
+				<a href="https://github.com/cg5-/ilo-lili-pi-sitelen-pona">The source code is on GitHub.</a> Pull requests are welcome. <br>
 				<em>jan Lipamanka/kulupu poki</em> made the font <em>linja sike</em>, which this uses. Thanks!
 				
 			</p>
