@@ -289,7 +289,7 @@ export default {
 <style lang="scss">
 @font-face {
 	font-family: linjasike;
-	src: url(https://wyub.github.io/tokipona/linja-sike-5.otf);
+	src: url(/linja-sike-5.otf);
 }
 
 header {
