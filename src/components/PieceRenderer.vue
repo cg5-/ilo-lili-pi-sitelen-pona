@@ -23,13 +23,17 @@ export default {
 	padding: 10px;
 	margin: 2rem 0;
 
-	.name, .pi {
+	> .name, > .pi {
 		color: #303f9f;
 		cursor: pointer;
 
 		&:hover {
 			background-color: #e57373;
 		}
+	}
+
+	> .normal {
+		white-space: pre-wrap;
 	}
 
 	&.monospace {

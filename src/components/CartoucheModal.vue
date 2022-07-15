@@ -140,6 +140,10 @@ export default {
 				color: #303f9f;
 			}
 
+			&.ku-lili {
+				color: #b71c1c;
+			}
+
 			&:hover {
 				background-color: #eeeeee;
 			}

@@ -1,3 +1,5 @@
+<!-- https://onlineutf8tools.com/convert-utf8-to-html-entities -->
+
 <template>
 	<div class="modal modal-fixed-footer help-modal">
 		<div class="modal-content">
@@ -14,13 +16,13 @@
 			<h3 v-else>What's this?</h3>
 			<p v-if="useTP">
 				ni li ilo lili pi sitelen pona.
-				sina pana e toki pona kepeken sitelen Lasina la, ilo li pana e toki pona ni kepeken nasin pi <a href="https://wyub.github.io/tokipona/linjasike">linja sike</a>.
-				(taso, sina kepeken linja ante la, nimi ni li ken pakala.)
+				sina pana e toki pona kepeken sitelen Lasina la, ilo li pana e toki pona ni kepeken nasin
+				pi <em><a href="https://wyub.github.io/tokipona/linjasike">linja sike</a></em> anu nasin UCSUR.
 			</p>
 			<p v-else>
 				This is a little <em>sitelen pona</em> tool.
-				If you type Toki Pona Latin text, it will write that text using the features of <em><a href="https://wyub.github.io/tokipona/linjasike">linja sike</a></em>.
-				(However, if you use a different font, its output might not work correctly.)
+				If you type Toki Pona Latin text, it will write that text in <em>sitelen pona</em> using the
+				features of <em><a href="https://wyub.github.io/tokipona/linjasike">linja sike</a></em> or using UCSUR.
 			</p>
 
 			<h4 v-if="useTP">ken pi ilo ni</h4>
@@ -92,14 +94,68 @@
 				<div class="after sitelen-pona"><div>sina __pali&lt;ala&gt;__pali e lipu+ni</div></div>
 			</div>
 
+			<h5 v-if="useTP">o wan e sitelen tu</h5>
+			<h5 v-else>Combined glyphs</h5>
+
+			<!-- v-show instead of v-if as to not break the Materialize tooltips -->
+			<p v-show="useTP">
+				sina ken wan e nimi tu kepeken sitelen <code>+</code> anu <code>-</code> anu <code>`</code>.
+				sina kepeken sitelen ante la, nimi li kama wan kepeken nasin ante. tenpo mute la, nasin pi sitelen
+				<code>+</code> li pona nanpa wan.
+				<a href="#" data-tooltip="+ → zero width joiner; - → stacking joiner; ` → scaling joiner">?</a>
+			</p>
+			<p v-show="!useTP">
+				You can combine two glyphs using <code>+</code>, <code>-</code> or <code>`</code>. The different characters
+				will combine the glyphs in different ways. Usually, <code>+</code> is the best.
+				<a href="#" data-tooltip="+ → zero width joiner; - → stacking joiner; ` → scaling joiner">?</a>
+			</p>
+
+			<div class="example">
+				<div class="before">
+					<div>[linja sike] soweli pona soweli+pona soweli-pona</div>
+					<div>[nasin nanpa] ijo-pona ijo`pona</div>
+				</div>
+				<div class="arrow"><div>→</div></div>
+				<div class="after">
+					<div class="sitelen-pona">soweli pona zz soweli+pona zz soweli-pona</div>
+					<div class="sitelen-pona-ucsur">&#xF190C;&#xF1995;&#xF1954; &#xF190C;&#xF1996;&#xF1954;</div>
+				</div>
+			</div>
+
+			<h5 v-if="useTP">o suli e sitelen mute</h5>
+			<h5 v-else>Other long glyphs</h5>
+
+			<p v-if="useTP">
+				poki <code>{ }</code> li luka e poka pi nimi ante la, sitelen li kama suli lon poka ni.
+				nimi lon insa pi poki <code>{ }</code> li kama insa pi sitelen suli. poka tu li ken.
+				taso, sitelen ale ala li ken kama suli. linja ante la, nimi ante li ken ni.
+			</p>
+			<p v-else>
+				If you put some words in <code>{ }</code> and connect that to the side of another word, that word will
+				extend to contain the words inside the <code>{ }</code>. You can do this on both sides.
+				But not every word can be extended in this way. Which words can be extended depends on the font.
+			</p>
+
+			<div class="example">
+				<div class="before">
+					<div>[linja sike] <code>o awen{pona} kepeken{ilo ni}</code></div>
+					<div>[sitelen kiwen seli] <code>mi {wile}kama</code></div>
+				</div>
+				<div class="arrow"><div>→</div></div>
+				<div class="after">
+					<div class="sitelen-pona">o awen>__pona kepeken>__ilo__ni</div>
+					<div class="sitelen-pona-ssk">&#xf1934;&ZeroWidthSpace;&#xf199a;&#xf1977;&#xf199b;&#xf1916;</div>
+				</div>
+			</div>
+
 			<h5 v-if="useTP">ijo ante</h5>
 			<h5 v-else>Miscellaneous</h5>
 
 			<p v-if="useTP">
-				kulupu nimi li lon insa poki <code>#{</code> <code>}</code> la, ona li awen sitelen Lasina. 
+				kulupu nimi li lon insa poki <code>#{ }</code> la, ona li awen sitelen Lasina. 
 			</p>
 			<p v-else>
-				If you surround some text with <code>#{</code> <code>}</code>, it will stay as Latin text.
+				If you surround some text with <code>#{ }</code>, it will stay as Latin text.
 			</p>
 
 			<div class="example">
@@ -146,22 +202,47 @@
 				<div class="after sitelen-pona"><div>mi jan [_mije_awen_kepeken_ona]</div></div>
 			</div>
 
-			<h4 v-if="useTP">jan pali</h4>
-			<h4 v-else>Creators</h4>
+			<p v-if="useTP">
+				<em>nasin nanpa</em> en <em>sitelen kiwen seli</em> la, <em>sitelen mora</em> li ken.
+			</p>
+			<p v-else>
+				With <em>nasin nanpa</em> and <em>sitelen kiwen seli</em>, you can use <em>sitelen mora</em>.
+			</p>
+
+			<div class="example">
+				<div class="before"><div>mi jan [ma.ko:]</div></div>
+				<div class="arrow"><div>→</div></div>
+				<div class="after sitelen-pona-ssk"><div>&#xf1934;&ZeroWidthSpace;&#xf1911;&ZeroWidthSpace;&#xf1990;&#xf1930;&#xf199c;&#xf191c;&#xf199d;&#xf1991;</div></div>
+			</div>
+
+			<h4 v-if="useTP">jan pali linja</h4>
+			<h4 v-else>Font credits</h4>
+
+			<ul v-if="useTP">
+				<li>jan Lipamanka/kulupu poki li pali e <a href="https://wyub.github.io/tokipona/linjasike"><em>linja sike</em></a>.</li>
+				<li>jan Itan li pali e <a href="https://github.com/ETBCOR/nasin-nanpa"><em>nasin nanpa</em></a>.</li>
+				<li>jan Lepaka li pali e <a href="http://www.kreativekorp.com/software/fonts/sitelenselikiwen/"><em>sitelen kiwen seli</em></a>.</li>
+			</ul>
+			<p v-if="useTP">sina ale li pona a!</p>
+
+			<ul v-if="!useTP">
+				<li><em>jan Lipamanka/kulupu poki</em> made <a href="https://wyub.github.io/tokipona/linjasike"><em>linja sike</em></a>.</li>
+				<li><em>jan Itan</em> made <a href="https://github.com/ETBCOR/nasin-nanpa"><em>nasin nanpa</em></a>.</li>
+				<li><em>jan Lepaka</em> made <a href="http://www.kreativekorp.com/software/fonts/sitelenselikiwen/"><em>sitelen kiwen seli</em></a>.</li>
+			</ul>
+			<p v-if="!useTP">Thanks everyone!</p>
+
+			<h4 v-if="useTP">toki ilo</h4>
+			<h4 v-else>Source code</h4>
 
 			<p v-if="useTP">
-				jan Mako li pali e ilo ni. <br>
-				ken la, sina kin li ken pali e ilo ni.
+				jan Mako li pali e ilo ni.
 				<a href="https://github.com/cg5-/ilo-lili-pi-sitelen-pona">sina ken lukin e toki ilo pi ilo ni lon lipu GitHub.</a>
-				sina ken pana e wile ante tawa mi lon lipu ni. <br>
-				jan Lipamanka/kulupu poki li pali e linja sike. ilo ni li kepeken linja ni. sina pona, jan Lipamanka o!
+				sina ken pana e wile ante tawa mi lon lipu ni.
 			</p>
 			<p v-else>
 				<em>jan Mako</em> made this. <br>
-				Maybe you made this, too?
-				<a href="https://github.com/cg5-/ilo-lili-pi-sitelen-pona">The source code is on GitHub.</a> Pull requests are welcome. <br>
-				<em>jan Lipamanka/kulupu poki</em> made the font <em>linja sike</em>, which this uses. Thanks!
-				
+				<a href="https://github.com/cg5-/ilo-lili-pi-sitelen-pona">The source code is on GitHub.</a> Pull requests are welcome.
 			</p>
 
 		</div>
@@ -196,6 +277,8 @@ export default {
 				this.$emit('update:active', false);
 			}
 		});
+
+		M.Tooltip.init(this.$el.querySelectorAll("[data-tooltip]"))
 	},
 	watch: {
 		active(value) {
@@ -237,7 +320,7 @@ export default {
 			font-size: 22px;
 		}
 
-		> .after.sitelen-pona {
+		> div.after {
 			font-size: 22px;
 			line-height: 1.1;
 		}
