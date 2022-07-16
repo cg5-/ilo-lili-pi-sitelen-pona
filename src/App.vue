@@ -264,7 +264,7 @@ function extendifyLinjaSike(glyphs) {
 
 function cartouchifyUCSUR(glyphs) {
 	const ucsurGlyphs = glyphs.map(g => {
-		const converted = wordToUCSURBasic(g);
+		const converted = wordToUCSUR(g);
 		if (converted) {
 			return converted;
 		} else if (/^[\.:]+$/.test(g)) {
@@ -479,7 +479,7 @@ export default {
 						addSpecial({type: 'name', baseWord, body: cartouchifyUCSUR(this.getSavedCartouche(baseWord))});
 						break;
 					case 'MANUAL_CARTOUCHE':
-						addNormal(text ? cartouchifyUCSUR(text.split(/\s+|\b/g)) : startCartouche + endCartouche);
+						addNormal(text ? cartouchifyUCSUR(text.replace(/[\.:]/g, x => ` ${x} `).split(/\s+/g)) : startCartouche + endCartouche);
 						break;
 					case 'MANUAL_GLYPH_EXTENSION_L': {
 						const [extension, extendedWord] = text.split('}');
