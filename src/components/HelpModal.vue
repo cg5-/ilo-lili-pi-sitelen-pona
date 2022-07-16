@@ -139,7 +139,7 @@
 			<div class="example">
 				<div class="before">
 					<div>[linja sike] <code>o awen{pona} kepeken{ilo ni}</code></div>
-					<div>[sitelen kiwen seli] <code>mi {wile}kama</code></div>
+					<div>[sitelen seli kiwen] <code>mi {wile}kama</code></div>
 				</div>
 				<div class="arrow"><div>→</div></div>
 				<div class="after">
@@ -203,10 +203,10 @@
 			</div>
 
 			<p v-if="useTP">
-				<em>nasin nanpa</em> en <em>sitelen kiwen seli</em> la, <em>sitelen mora</em> li ken.
+				<em>nasin nanpa</em> en <em>sitelen seli kiwen</em> la, <em>sitelen mora</em> li ken.
 			</p>
 			<p v-else>
-				With <em>nasin nanpa</em> and <em>sitelen kiwen seli</em>, you can use <em>sitelen mora</em>.
+				With <em>nasin nanpa</em> and <em>sitelen seli kiwen</em>, you can use <em>sitelen mora</em>.
 			</p>
 
 			<div class="example">
@@ -221,14 +221,16 @@
 			<ul v-if="useTP">
 				<li>jan Lipamanka/kulupu poki li pali e <a href="https://wyub.github.io/tokipona/linjasike"><em>linja sike</em></a>.</li>
 				<li>jan Itan li pali e <a href="https://github.com/ETBCOR/nasin-nanpa"><em>nasin nanpa</em></a>.</li>
-				<li>jan Lepaka li pali e <a href="http://www.kreativekorp.com/software/fonts/sitelenselikiwen/"><em>sitelen kiwen seli</em></a>.</li>
+				<li>jan Lepaka li pali e <a href="http://www.kreativekorp.com/software/fonts/sitelenselikiwen"><em>sitelen seli kiwen</em></a>.</li>
+				<li>kulupu pi sitelen Emoji li pali e <a href="https://sites.google.com/view/sitelenemoji"><em>sitelen Emoji</em></a>.</li>
 			</ul>
 			<p v-if="useTP">sina ale li pona a!</p>
 
 			<ul v-if="!useTP">
 				<li><em>jan Lipamanka/kulupu poki</em> made <a href="https://wyub.github.io/tokipona/linjasike"><em>linja sike</em></a>.</li>
 				<li><em>jan Itan</em> made <a href="https://github.com/ETBCOR/nasin-nanpa"><em>nasin nanpa</em></a>.</li>
-				<li><em>jan Lepaka</em> made <a href="http://www.kreativekorp.com/software/fonts/sitelenselikiwen/"><em>sitelen kiwen seli</em></a>.</li>
+				<li><em>jan Lepaka</em> made <a href="http://www.kreativekorp.com/software/fonts/sitelenselikiwen"><em>sitelen seli kiwen</em></a>.</li>
+				<li>The <em>sitelen Emoji</em> community made <a href="https://sites.google.com/view/sitelenemoji"><em>sitelen Emoji</em></a>.</li>
 			</ul>
 			<p v-if="!useTP">Thanks everyone!</p>
 

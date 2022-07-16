@@ -32,6 +32,10 @@ export default {
 		}
 	}
 
+	&.sitelen-emoji-suli > .name:not(:hover) {
+		background-color: #ef9a9a;
+	}
+
 	> .normal {
 		white-space: pre-wrap;
 	}

@@ -4,8 +4,10 @@
 		<CartoucheModal
 			:baseWord="cartoucheModalBaseWord"
 			:glyphs="cartoucheModalGlyphs"
+			:fontType="fontType"
 			v-model:active="cartoucheModalActive"
 			@submit="cartoucheModalSubmitted($event)"
+			:class="{[`cartouche-modal-${font}`]: 1}"
 		/>
 		<LongPiModal
 			:piece="longPiModalPiece"
@@ -33,11 +35,14 @@
 					</optgroup>
 					<optgroup label="nasin UCSUR">
 						<option value="nasin-nanpa">nasin nanpa</option>
-						<option value="sitelen-kiwen-seli-juniko">sitelen kiwen seli juniko</option>
+						<option value="sitelen-seli-kiwen-juniko">sitelen seli kiwen juniko</option>
+					</optgroup>
+					<optgroup label="nasin ante">
+						<option value="sitelen-emoji">sitelen Emoji</option>
 					</optgroup>
 				</select>
 			</div>
-			<label>
+			<label v-if="fontSupportsLongPi">
 				<input type="checkbox" v-model="useLongPi" />
 				<span>o kepeken nimi "pi" suli: <span class="sitelen-pona">jan pi+__pana__sona</span></span>
 			</label>
@@ -76,11 +81,18 @@
 		/>
 
 		<PieceRenderer
-			v-if="font === 'sitelen-kiwen-seli-juniko'"
+			v-if="font === 'sitelen-seli-kiwen-juniko'"
 			class="sitelen-pona-ssk-suli"
 			:pieces="renderedUCSUR"
 			@name="openCartoucheModal($event)"
 			@pi="openLongPiModal($event)"
+		/>
+
+		<PieceRenderer
+			v-if="font === 'sitelen-emoji'"
+			class="sitelen-emoji-suli"
+			:pieces="renderedSitelenEmoji"
+			@name="openCartoucheModal($event)"
 		/>
 	</div>
 </template>
@@ -96,6 +108,7 @@ import LongPiModal from './components/LongPiModal.vue';
 
 import presetCartouches from './presetCartouches.json';
 import ucsur from './ucsur.json';
+import sitelenEmoji from './sitelen-emoji.json';
 
 const terminatingParticles = new Set(["anu", "e", "en", "la", "li", "o", "pi"]);
 const preps = new Set(["tawa", "tan", "lon", "kepeken", "sama"]);
@@ -307,6 +320,10 @@ function wordToUCSURBasic(word) {
 	return ucsur[word] ? String.fromCodePoint(ucsur[word]) : false;
 }
 
+function cartouchifySitelenEmoji(glyphs) {
+	return sitelenEmoji._ + glyphs.map(g => sitelenEmoji[g] || g.charAt(0).toUpperCase()).join('') + sitelenEmoji._;
+}
+
 export default {
 	data() {
 		return {
@@ -411,7 +428,7 @@ export default {
 						addSpecial({type: 'newlines', html: Array.from(text).map(() => '<br>').join('')});
 						break;
 					case 'WORD':
-						if (this.useLongPi && text === 'pi') {
+						if (this.useLongPi && this.fontSupportsLongPi && text === 'pi') {
 							addSpecial(parsePi(tokens, this.piConfigs, number));
 							break;
 						}
@@ -507,7 +524,7 @@ export default {
 						break;
 					}
 					case 'WORD':
-						if (this.useLongPi && text === 'pi') {
+						if (this.useLongPi && this.fontSupportsLongPi && text === 'pi') {
 							addSpecial(parsePi(tokens, this.piConfigs, number, true));
 							break;
 						}
@@ -550,16 +567,107 @@ export default {
 			return result;
 		},
 
+		renderedSitelenEmoji() {
+			const tokens = this.tokensAndPiCount.tokens.slice();
+			const result = [];
+			let currentNormal = '';
+			let lastLatin;
+
+			const addNormal = text => currentNormal += text;
+			const addSpecial = piece => {
+				if (currentNormal) {
+					result.push({type: 'normal', body: currentNormal});
+				}
+				currentNormal = '';
+				result.push(piece);
+			};
+
+			while (tokens.length && tokens[0][0] !== 'EOF') {
+				const [type, text] = tokens.shift();
+				const wasLastLatin = lastLatin;
+				lastLatin = false;
+
+				switch (type) {
+					case 'WHITESPACE':
+						// If they typed a bunch of spaces then we will output a bunch of spaces
+						if (text.length > 1) {
+							addNormal(text.substring(1));
+						} else {
+							lastLatin = wasLastLatin;
+						}
+						break;
+					case 'NAME': {
+						// sitelen-emoji.json has some place names
+						const emoji = sitelenEmoji[text];
+						if (emoji) {
+							addNormal(emoji);
+						} else {
+							const baseWord = text.toUpperCase();
+							const savedCartouche = this.getSavedCartouche(baseWord);
+							if (savedCartouche.join('') === baseWord) {
+								addSpecial({type: 'name', baseWord, body: text});
+								lastLatin = true;
+							} else {
+								addSpecial({type: 'name', baseWord, body: cartouchifySitelenEmoji(savedCartouche)});
+							}
+						}
+						// const baseWord = text.toUpperCase();
+						// // Zero width space necessary to allow line-wrapping
+						// addSpecial({type: 'name', baseWord, body: cartouchifyUCSUR(this.getSavedCartouche(baseWord))});
+						break;
+					}
+					case 'WORD': {
+						const emoji = sitelenEmoji[text];
+						if (emoji) {
+							addNormal(emoji);
+						} else {
+							addNormal(wasLastLatin ? ' ' + text : text);
+							lastLatin = true;
+						}
+						break;
+					}
+					case 'PUNCTUATION':
+						addNormal(text.replace(/\./g, sitelenEmoji['.']).replace(/:/g, sitelenEmoji[':']));
+						break;
+					case 'NEWLINES':
+						addSpecial({type: 'newlines', html: Array.from(text).map(() => '<br>').join('')});
+						break;
+					default:
+						addNormal(wasLastLatin ? ' ' + text : text);
+						lastLatin = true;
+
+				}
+			}
+
+			if (currentNormal) {
+				result.push({type: 'normal', body: currentNormal});
+			}
+
+			return result;
+		},
+
 		numberOfPis() {
 			return this.tokensAndPiCount.piCount;
 		},
 
+		fontType() {
+			switch (this.font) {
+				case 'nasin-nanpa': case 'sitelen-seli-kiwen-juniko': return 'ucsur';
+				case 'sitelen-emoji': return 'sitelen-emoji';
+				default: return 'ligature';
+			}
+		},
+
+		fontSupportsLongPi() {
+			return this.font !== 'sitelen-emoji';
+		},
+
 		fontSupportsFancyXAlaX() {
-			return this.font === 'linja-sike' || this.font === 'sitelen-kiwen-seli-juniko';
+			return this.font === 'linja-sike' || this.font === 'sitelen-seli-kiwen-juniko';
 		},
 
 		fontSupportsGlyphExtensions() {
-			return this.font === 'linja-sike' || this.font === 'sitelen-kiwen-seli-juniko';
+			return this.font === 'linja-sike' || this.font === 'sitelen-seli-kiwen-juniko';
 		}
 	},
 	methods: {
@@ -697,14 +805,19 @@ header {
 	line-height: 1.3;
 }
 
+.sitelen-emoji-suli {
+	font-size: 50px;
+	line-height: 1.3;
+}
+
 @media (max-width:600px) {
-	.sitelen-pona-suli, .sitelen-pona-ucsur-suli, .sitelen-pona-ssk-suli {
+	.sitelen-pona-suli, .sitelen-pona-ucsur-suli, .sitelen-pona-ssk-suli, .sitelen-emoji-suli {
 		font-size: 30px;
 	}
 }
 
 @media (min-width:600px) and (max-width:800px) {
-	.sitelen-pona-suli, .sitelen-pona-ucsur-suli, .sitelen-pona-ssk-suli {
+	.sitelen-pona-suli, .sitelen-pona-ucsur-suli, .sitelen-pona-ssk-suli, .sitelen-emoji-suli {
 		font-size: 40px;
 	}
 }

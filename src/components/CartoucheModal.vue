@@ -10,7 +10,7 @@
 					@click="selectedLetterIndex = idx"
 				>
 					<div class="latin">{{baseWord[idx]}}</div>
-					<div class="sitelen-pona-suli">{{glyph}}</div>
+					<div class="sitelen-pona-suli">{{displayGlyph(glyph) || glyph.charAt(0).toUpperCase()}}</div>
 				</div>
 			</div>
 
@@ -20,8 +20,9 @@
 					class="glyph"
 					:class="{[glyph.type]: true, 'selected': currentGlyphs[selectedLetterIndex] === glyph.glyph}"
 					@click="selectGlyph(glyph.glyph)"
+					v-show="displayGlyph(glyph.glyph)"
 				>
-					<div class="sitelen-pona-suli">{{glyph.glyph}}</div>
+					<div class="sitelen-pona-suli">{{displayGlyph(glyph.glyph)}}</div>
 					<div class="latin">{{glyph.glyph}}</div>
 				</div>
 			</div>
@@ -35,10 +36,12 @@
 
 <script>
 import words from '../words.json';
+import ucsur from '../ucsur.json';
+import sitelenEmoji from '../sitelen-emoji.json';
 
 export default {
 	name: 'CartoucheModal',
-	props: ['active', 'baseWord', 'glyphs'],
+	props: ['active', 'baseWord', 'glyphs', 'font-type'],
 	data() {
 		return {
 			currentGlyphs: [],
@@ -82,6 +85,19 @@ export default {
 		submit() {
 			this.$emit('submit', {baseWord: this.baseWord, glyphs: this.currentGlyphs});
 			this.close();
+		},
+		displayGlyph(glyph) {
+			if (/^[A-Z]$/.test(glyph)) return glyph;
+
+			if (this.fontType === 'ucsur') {
+				return ucsur[glyph] ? String.fromCodePoint(ucsur[glyph]) : null;
+			}
+
+			if (this.fontType === 'sitelen-emoji') {
+				return sitelenEmoji[glyph];
+			}
+
+			return glyph;
 		}
 	},
 	computed: {
@@ -153,6 +169,14 @@ export default {
 				cursor: unset;
 			}
 		}
+	}
+
+	&.cartouche-modal-nasin-nanpa .sitelen-pona-suli {
+		font-family: nasinnanpa;
+	}
+
+	&.cartouche-modal-sitelen-seli-kiwen-juniko .sitelen-pona-suli {
+		font-family: sitelenselikiwenjuniko;
 	}
 }
 </style>

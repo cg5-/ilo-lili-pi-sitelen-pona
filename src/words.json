@@ -39,6 +39,10 @@
     {
       "glyph": "awen",
       "type": "pu"
+    },
+    {
+      "glyph": "apeja",
+      "type": "ku-lili"
     }
   ],
   "b": [
@@ -367,6 +371,10 @@
     {
       "glyph": "monsuta",
       "type": "ku-suli"
+    },
+    {
+      "glyph": "majuna",
+      "type": "ku-lili"
     }
   ],
   "n": [
@@ -497,6 +505,14 @@
     {
       "glyph": "pu",
       "type": "pu"
+    },
+    {
+      "glyph": "pake",
+      "type": "ku-lili"
+    },
+    {
+      "glyph": "powe",
+      "type": "ku-lili"
     }
   ],
   "q": [
